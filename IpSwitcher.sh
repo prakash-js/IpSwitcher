@@ -31,7 +31,7 @@ iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 9040
 
 
 
-# Trap SIGINT (Ctrl+C) to clean up and stop Tor service
+# Trap SIGINT (Ctrl+C) to stop Tor service and clean iptables
 trap 'iptables -tnat -F && iptables -F && echo "Exiting Tor"; service tor stop; exit' SIGINT
 
 # Continuously restart Tor service every $tor_seconds seconds
