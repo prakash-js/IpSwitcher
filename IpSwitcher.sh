@@ -26,7 +26,7 @@ service tor start
 
 # Set up iptables rules for Tor
 echo "Setting up iptables rules..."
-sudo iptables -t nat -A OUTPUT -p tcp --dport 1:6500 -j REDIRECT --to-ports 9040
+iptables -t nat -A OUTPUT -p tcp --dport 1:6500 -j REDIRECT --to-ports 9040
 iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 9040
 
 
